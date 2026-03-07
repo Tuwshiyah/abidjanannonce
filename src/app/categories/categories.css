@@ -1,0 +1,155 @@
+.categories-page {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+}
+
+/* Header */
+.categories-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.categories-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.categories-search {
+    position: relative;
+}
+
+.categories-search input {
+    padding: 10px 16px 10px 40px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    width: 260px;
+    transition: border-color 0.2s;
+}
+
+.categories-search input:focus {
+    border-color: #f57c00;
+}
+
+.categories-search .cat-search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    display: flex;
+}
+
+/* Grid */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* Card */
+.category-card {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+.card-color-bar {
+    height: 4px;
+    width: 100%;
+}
+
+.card-icon-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    background: #fafafa;
+}
+
+.card-icon-area svg {
+    width: 80px;
+    height: 80px;
+}
+
+.card-info {
+    padding: 20px 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.card-info p {
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.card-info .explore-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1.5px solid #1a1a2e;
+    background: transparent;
+    color: #1a1a2e;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.card-info .explore-btn:hover {
+    background: #1a1a2e;
+    color: white;
+}
+
+.card-info .explore-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+}
