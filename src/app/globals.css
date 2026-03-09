@@ -40,6 +40,10 @@
   --transition-normal: 0.3s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {

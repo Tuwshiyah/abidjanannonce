@@ -39,15 +39,7 @@ export default function Header() {
                         <span style={{ color: "var(--accent-green)" }}>y</span>
                     </Link>
 
-                    <div style={{ position: 'relative', flex: 1 }}>
-                        <Link href="/publier" className="publish-btn publish-btn-top">
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                                <line x1="12" y1="5" x2="12" y2="19" />
-                                <line x1="5" y1="12" x2="19" y2="12" />
-                            </svg>
-                            Publier une annonce
-                        </Link>
-
+                    <div className="main-header-search">
                         <div className="search-container">
                             <div className="search-input-wrapper">
                                 <span className="search-icon">
@@ -60,7 +52,15 @@ export default function Header() {
                         </div>
                     </div>
 
-                    <Link href="/recherche-avancee" className="advanced-search">Recherche approfondie</Link>
+                    <div className="main-header-actions">
+                        <Link href="/publier" className="publish-btn">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                                <line x1="12" y1="5" x2="12" y2="19" />
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                            </svg>
+                            Publier une annonce
+                        </Link>
+                    </div>
                 </div>
             </div>
 

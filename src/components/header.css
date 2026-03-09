@@ -3,7 +3,9 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     font-size: 13px;
-    /* eBay uses smaller fonts in headers */
+    position: sticky;
+    top: 0;
+    z-index: 500;
 }
 
 /* Base Top Nav */
@@ -53,29 +55,23 @@
 .publish-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: linear-gradient(135deg, #f57c00 0%, #ff9800 100%);
+    justify-content: center;
+    gap: 8px;
+    height: 46px;
+    padding: 0 20px;
+    background: linear-gradient(135deg, #f08a12 0%, #f6a623 100%);
     color: white !important;
-    padding: 6px 16px;
-    /* Slightly thicker for better visual balance */
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
+    border-radius: 23px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    line-height: 1;
     text-decoration: none !important;
     transition: all 0.3s ease;
     overflow: hidden;
     white-space: nowrap;
-}
-
-.publish-btn-top {
-    position: absolute;
-    top: -49px;
-    /* Push it exactly into the top nav vertical center */
-    left: 50%;
-    /* Center it horizontally relative to the search bar */
-    transform: translateX(-50%);
-    /* Center alignment */
-    z-index: 100;
+    position: relative;
+    box-shadow: 0 3px 10px rgba(240, 138, 18, 0.18);
 }
 
 .publish-btn::before {
@@ -94,9 +90,8 @@
 }
 
 .publish-btn:hover {
-    background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
-    box-shadow: 0 3px 12px rgba(245, 124, 0, 0.35);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, #df7d0b 0%, #f08a12 100%);
+    box-shadow: 0 5px 14px rgba(240, 138, 18, 0.22);
 }
 
 /* Main Search Header */
@@ -110,6 +105,18 @@
     gap: 16px;
     padding: 12px 0;
     position: relative;
+}
+
+.main-header-search {
+    flex: 1;
+    min-width: 0;
+}
+
+.main-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: auto;
 }
 
 .logo {
@@ -373,17 +380,6 @@
     box-shadow: 0 4px 15px rgba(44, 62, 107, 0.35);
 }
 
-.advanced-search {
-    font-size: 12px;
-    color: #999;
-    transition: color 0.2s;
-    white-space: nowrap;
-}
-
-.advanced-search:hover {
-    color: #f57c00;
-}
-
 /* Search Category Picker */
 .category-select {
     border-left: 1px solid #eee;
@@ -619,6 +615,27 @@
 @media (max-width: 768px) {
     .top-nav {
         display: none;
+    }
+
+    .main-header-container {
+        flex-wrap: wrap;
+    }
+
+    .main-header-search {
+        order: 2;
+        flex-basis: 100%;
+    }
+
+    .main-header-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .publish-btn {
+        height: 42px;
+        padding: 0 18px;
+        border-radius: 21px;
+        font-size: 13px;
     }
 
     .search-container {

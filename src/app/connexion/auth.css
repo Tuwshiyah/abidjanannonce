@@ -42,6 +42,16 @@
     font-size: 14px;
 }
 
+.auth-error {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
 .auth-form {
     display: flex;
     flex-direction: column;

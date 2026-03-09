@@ -11,6 +11,7 @@ export type Product = {
     category: string;
     rating: number;
     reviewCount: number;
+    sold?: boolean;
 };
 
 export const MOCK_PRODUCTS: Product[] = [
@@ -313,6 +314,127 @@ export const LATEST_PRODUCTS: Product[] = [
     }
 ];
 
+const CAMERA_WORLD_PRODUCTS: Product[] = [
+    {
+        id: "cw-1",
+        title: "Canon EOS R6 Mark II - Bo\u00eetier Nu",
+        price: 2299.00,
+        condition: "Brand New",
+        imageUrl: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?q=80&w=1000&auto=format&fit=crop",
+        sellerId: "seller-123",
+        sellerName: "CameraWorld",
+        sellerRating: 4.9,
+        description: "Canon EOS R6 Mark II neuf. Capteur plein format 24.2MP, vid\u00e9o 4K 60p, stabilisation jusqu'\u00e0 8 stops.",
+        category: "\u00c9lectronique",
+        rating: 4.8,
+        reviewCount: 18,
+        sold: true
+    },
+    {
+        id: "cw-2",
+        title: "Objectif Sony FE 24-70mm f/2.8 GM II",
+        price: 1899.00,
+        condition: "Like New",
+        imageUrl: "https://images.unsplash.com/photo-1617005082133-548c4dd27f35?q=80&w=1000&auto=format&fit=crop",
+        sellerId: "seller-123",
+        sellerName: "CameraWorld",
+        sellerRating: 4.9,
+        description: "Objectif zoom professionnel Sony G Master. Comme neuf, utilis\u00e9 seulement quelques fois.",
+        category: "\u00c9lectronique",
+        rating: 4.7,
+        reviewCount: 12
+    },
+    {
+        id: "cw-3",
+        title: "Tr\u00e9pied Manfrotto Befree Advanced en carbone",
+        price: 289.00,
+        condition: "Brand New",
+        imageUrl: "https://images.unsplash.com/photo-1585506942812-e72b29cef752?q=80&w=1000&auto=format&fit=crop",
+        sellerId: "seller-123",
+        sellerName: "CameraWorld",
+        sellerRating: 4.9,
+        description: "Tr\u00e9pied de voyage l\u00e9ger en fibre de carbone. Charge max 8kg, id\u00e9al pour la photo de paysage.",
+        category: "Maison & Jardin",
+        rating: 4.5,
+        reviewCount: 8,
+        sold: true
+    },
+    {
+        id: "cw-4",
+        title: "Sac photo Lowepro ProTactic BP 450 AW II",
+        price: 199.00,
+        condition: "Brand New",
+        imageUrl: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1000&auto=format&fit=crop",
+        sellerId: "seller-123",
+        sellerName: "CameraWorld",
+        sellerRating: 4.9,
+        description: "Sac \u00e0 dos photo professionnel. Acc\u00e8s rapide, protection tous temps, modulable.",
+        category: "Mode & Beaut\u00e9",
+        rating: 4.6,
+        reviewCount: 15
+    },
+    {
+        id: "cw-5",
+        title: "Moniteur externe Atomos Ninja V+ 5.2 pouces HDR",
+        price: 649.00,
+        condition: "Like New",
+        imageUrl: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=1000&auto=format&fit=crop",
+        sellerId: "seller-123",
+        sellerName: "CameraWorld",
+        sellerRating: 4.9,
+        description: "Moniteur-enregistreur 5.2 pouces. Enregistrement ProRes RAW, HDR 1000nits.",
+        category: "Informatique",
+        rating: 4.4,
+        reviewCount: 6
+    },
+];
+
+export const ALL_PRODUCTS: Product[] = [...MOCK_PRODUCTS, ...LATEST_PRODUCTS, ...CAMERA_WORLD_PRODUCTS];
+
 export function getProductById(id: string) {
-    return MOCK_PRODUCTS.find(p => p.id === id);
+    return ALL_PRODUCTS.find((product) => product.id === id);
+}
+
+export function getSellerProducts(sellerId: string) {
+    return ALL_PRODUCTS.filter((product) => product.sellerId === sellerId);
+}
+
+const SELLER_DESCRIPTIONS: Record<string, string> = {
+    "seller-123": "Sp\u00e9cialiste en mat\u00e9riel photo et vid\u00e9o depuis plus de 10 ans. Nous proposons des appareils photo, objectifs et accessoires de grandes marques \u00e0 des prix comp\u00e9titifs. Tous nos produits sont v\u00e9rifi\u00e9s et garantis. Livraison rapide et service client disponible 7j/7.",
+    "seller-456": "Votre destination num\u00e9ro 1 pour le mat\u00e9riel informatique professionnel. Ordinateurs, composants et p\u00e9riph\u00e9riques de qualit\u00e9 sup\u00e9rieure.",
+    "seller-789": "Boutique de luxe sp\u00e9cialis\u00e9e dans les montres et bijoux haut de gamme. Authenticit\u00e9 garantie sur chaque pi\u00e8ce.",
+    "seller-101": "Passionn\u00e9 de sneakers et de streetwear. Collection exclusive de mod\u00e8les rares et limit\u00e9s.",
+    "seller-202": "Expert en mobilier et d\u00e9coration d'int\u00e9rieur. Des pi\u00e8ces uniques pour embellir votre espace de vie.",
+};
+
+const SELLER_LOCATIONS: Record<string, string> = {
+    "seller-123": "Abidjan, C\u00f4te d'Ivoire",
+    "seller-456": "Cocody, Abidjan",
+    "seller-789": "Plateau, Abidjan",
+    "seller-101": "Marcory, Abidjan",
+    "seller-202": "Yopougon, Abidjan",
+};
+
+export function getSellerInfo(sellerId: string) {
+    const products = getSellerProducts(sellerId);
+    if (products.length === 0) return null;
+
+    const first = products[0];
+    const totalReviews = products.reduce((sum, p) => sum + p.reviewCount, 0);
+    const avgRating = products.reduce((sum, p) => sum + p.sellerRating, 0) / products.length;
+
+    return {
+        id: sellerId,
+        name: first.sellerName,
+        rating: avgRating,
+        totalReviews,
+        productCount: products.length,
+        products,
+        memberSince: "2023",
+        joinDate: "15 Mars 2023",
+        responseRate: Math.min(100, Math.round(avgRating * 20)),
+        responseTime: "Moins d'une heure",
+        description: SELLER_DESCRIPTIONS[sellerId] || "Vendeur actif sur notre plateforme. D\u00e9couvrez ses articles en vente.",
+        location: SELLER_LOCATIONS[sellerId] || "Abidjan, C\u00f4te d'Ivoire",
+    };
 }
