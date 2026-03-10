@@ -71,13 +71,15 @@ export default function Header() {
                         <li><Link href="/annonces">Véhicules</Link></li>
                         <li><Link href="/annonces">Immobilier</Link></li>
                         <li><Link href="/annonces">Électronique</Link></li>
+                        <li><Link href="/annonces">Électroménager</Link></li>
                         <li><Link href="/annonces">Mode &amp; Beauté</Link></li>
-                        <li><Link href="/annonces">Maison &amp; Jardin</Link></li>
-                        <li><Link href="/annonces">Emploi &amp; Services</Link></li>
-                        <li><Link href="/annonces">Alimentation</Link></li>
-                        <li><Link href="/annonces">Cours &amp; Formation</Link></li>
-                        <li><Link href="/annonces">Loisirs</Link></li>
+                        <li><Link href="/annonces">Pour l&apos;enfant</Link></li>
+                        <li><Link href="/annonces">Pour la maison</Link></li>
+                        <li><Link href="/annonces">Sports &amp; Loisirs</Link></li>
+                        <li><Link href="/annonces">Emplois</Link></li>
+                        <li><Link href="/annonces">Services</Link></li>
                         <li><Link href="/annonces">Animaux</Link></li>
+                        <li><Link href="/annonces">Alimentation</Link></li>
                         <li><Link href="/annonces">Matériel Pro</Link></li>
                     </ul>
                 </div>

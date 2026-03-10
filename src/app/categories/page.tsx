@@ -3,88 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import { CategoryIcons } from "@/components/CategoryIcons";
+import { CATEGORIES } from "@/lib/categories";
 import "./categories.css";
-
-const CATEGORIES = [
-    {
-        name: "Véhicules",
-        iconKey: "vehicules",
-        color: "#E53935",
-        description: "Voitures, motos, pièces détachées et tout pour vos déplacements au quotidien."
-    },
-    {
-        name: "Immobilier",
-        iconKey: "immobilier",
-        color: "#1E88E5",
-        description: "Appartements, maisons, terrains et locaux commerciaux à vendre ou louer."
-    },
-    {
-        name: "Électronique",
-        iconKey: "electronique",
-        color: "#43A047",
-        description: "Smartphones, tablettes, accessoires et gadgets high-tech pour tous."
-    },
-    {
-        name: "Mode & Beauté",
-        iconKey: "mode",
-        color: "#FFB300",
-        description: "Vêtements, chaussures, bijoux et produits de beauté pour hommes et femmes."
-    },
-    {
-        name: "Maison & Jardin",
-        iconKey: "maison",
-        color: "#E53935",
-        description: "Meubles, décoration, électroménager et tout pour embellir votre intérieur."
-    },
-    {
-        name: "Emploi & Services",
-        iconKey: "emploi",
-        color: "#1E88E5",
-        description: "Offres d'emploi, services professionnels et opportunités de carrière."
-    },
-    {
-        name: "Alimentation",
-        iconKey: "alimentation",
-        color: "#43A047",
-        description: "Produits alimentaires, boissons et spécialités locales et importées."
-    },
-    {
-        name: "Cours & Formation",
-        iconKey: "cours",
-        color: "#FFB300",
-        description: "Formations professionnelles, cours particuliers et programmes éducatifs."
-    },
-    {
-        name: "Loisirs",
-        iconKey: "loisirs",
-        color: "#9C27B0",
-        description: "Jeux vidéo, sports, musique et divertissements pour tous les goûts."
-    },
-    {
-        name: "Animaux",
-        iconKey: "animaux",
-        color: "#00897B",
-        description: "Animaux de compagnie, accessoires et tout pour le bien-être de vos compagnons."
-    },
-    {
-        name: "Matériel Pro",
-        iconKey: "pro",
-        color: "#546E7A",
-        description: "Équipements, outillage et matériaux pour professionnels du BTP et artisans."
-    },
-    {
-        name: "Affaires",
-        iconKey: "affaires",
-        color: "#F57C00",
-        description: "Opportunités d'investissement, fonds de commerce et partenariats d'affaires."
-    },
-];
 
 export default function CategoriesPage() {
     const [search, setSearch] = useState("");
 
     const filtered = CATEGORIES.filter(cat =>
-        cat.name.toLowerCase().includes(search.toLowerCase())
+        cat.name.toLowerCase().includes(search.toLowerCase()) ||
+        cat.subcategories.some(sub => sub.toLowerCase().includes(search.toLowerCase()))
     );
 
     return (
@@ -119,6 +46,13 @@ export default function CategoriesPage() {
                         <div className="card-info">
                             <h3>{cat.name}</h3>
                             <p>{cat.description}</p>
+                            <ul className="subcategory-list">
+                                {cat.subcategories.map((sub) => (
+                                    <li key={sub}>
+                                        <Link href="/annonces">{sub}</Link>
+                                    </li>
+                                ))}
+                            </ul>
                             <Link href="/annonces" className="explore-btn">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="3" y1="6" x2="21" y2="6" />
@@ -128,7 +62,7 @@ export default function CategoriesPage() {
                                     <circle cx="16" cy="12" r="2" fill="currentColor" opacity="0.3" />
                                     <circle cx="10" cy="18" r="2" fill="currentColor" opacity="0.3" />
                                 </svg>
-                                Explorer les produits
+                                Tout voir
                             </Link>
                         </div>
                     </div>

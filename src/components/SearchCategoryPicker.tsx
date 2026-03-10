@@ -3,21 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { CategoryIcons } from "./CategoryIcons";
-
-const CATEGORIES = [
-    { name: "Véhicules", iconKey: "vehicules", color: "#E53935", value: "vehicules" },
-    { name: "Immobilier", iconKey: "immobilier", color: "#1E88E5", value: "immobilier" },
-    { name: "Électronique", iconKey: "electronique", color: "#43A047", value: "electronique" },
-    { name: "Mode & Beauté", iconKey: "mode", color: "#FFB300", value: "mode" },
-    { name: "Maison & Jardin", iconKey: "maison", color: "#E53935", value: "maison" },
-    { name: "Emploi & Services", iconKey: "emploi", color: "#1E88E5", value: "emploi" },
-    { name: "Alimentation", iconKey: "alimentation", color: "#43A047", value: "alimentation" },
-    { name: "Cours & Formation", iconKey: "cours", color: "#FFB300", value: "cours" },
-    { name: "Loisirs", iconKey: "loisirs", color: "#9C27B0", value: "loisirs" },
-    { name: "Animaux", iconKey: "animaux", color: "#00897B", value: "animaux" },
-    { name: "Matériel Pro", iconKey: "pro", color: "#546E7A", value: "pro" },
-    { name: "Affaires", iconKey: "affaires", color: "#F57C00", value: "affaires" },
-];
+import { CATEGORIES } from "@/lib/categories";
 
 export default function SearchCategoryPicker() {
     const [isOpen, setIsOpen] = useState(false);

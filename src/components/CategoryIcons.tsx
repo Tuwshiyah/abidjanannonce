@@ -58,6 +58,33 @@ export const CategoryIcons: Record<string, React.ReactNode> = {
             <polygon points="26,22 26,36 40,29" fill="currentColor" opacity=".35" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" />
         </svg>
     ),
+    electromenager: (
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="14" y="8" width="36" height="48" rx="4" fill="currentColor" opacity=".1" stroke="currentColor" strokeWidth="2.8" />
+            <rect x="20" y="14" width="24" height="16" rx="2" stroke="currentColor" strokeWidth="2.2" fill="currentColor" opacity=".08" />
+            <circle cx="32" cy="44" r="5" stroke="currentColor" strokeWidth="2.2" />
+            <line x1="32" y1="39" x2="32" y2="44" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+    ),
+    enfant: (
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="24" r="14" fill="currentColor" opacity=".1" stroke="currentColor" strokeWidth="2.8" />
+            <circle cx="26" cy="22" r="2" fill="currentColor" />
+            <circle cx="38" cy="22" r="2" fill="currentColor" />
+            <path d="M26 28c2 3 8 3 12 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            <path d="M22 38v14a4 4 0 004 4h12a4 4 0 004-4V38" stroke="currentColor" strokeWidth="2.8" />
+            <line x1="22" y1="44" x2="42" y2="44" stroke="currentColor" strokeWidth="2" />
+        </svg>
+    ),
+    services: (
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="32" r="22" fill="currentColor" opacity=".08" stroke="currentColor" strokeWidth="2.8" />
+            <path d="M38 22a8 8 0 00-12 0" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M24 30l4 2 4-4 4 4 4-2" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M26 38h12" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M28 42h8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+        </svg>
+    ),
     animaux: (
         <img src="/categories/animaux.webp" alt="Animaux" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", borderRadius: "50%" }} />
     ),
@@ -69,8 +96,5 @@ export const CategoryIcons: Record<string, React.ReactNode> = {
             <circle cx="32" cy="42" r="9" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity=".08" />
             <path d="M27 42l4 4 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-    ),
-    affaires: (
-        <img src="/categories/affaires.webp" alt="Affaires" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", borderRadius: "50%" }} />
     ),
 };
