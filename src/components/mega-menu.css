@@ -1,0 +1,248 @@
+/* Mega Nav Container */
+.mega-nav {
+    position: relative;
+    z-index: 900;
+}
+
+.mega-nav-container {
+    position: relative;
+}
+
+.cat-nav-list {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.cat-nav-item {
+    position: relative;
+}
+
+.cat-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    color: var(--foreground);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none !important;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s ease;
+}
+
+.cat-nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    transition: opacity 0.15s;
+}
+
+.cat-nav-link:hover .cat-nav-icon,
+.cat-nav-item-active .cat-nav-icon {
+    opacity: 1;
+}
+
+.cat-nav-link:hover,
+.cat-nav-item-active .cat-nav-link {
+    color: #19335d;
+    border-bottom-color: #19335d;
+}
+
+.cat-nav-link-more {
+    color: #19335d !important;
+    font-weight: 600;
+}
+
+/* Mega Panel - contained and left-aligned */
+.mega-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #fff;
+    border: 1px solid #eee;
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    animation: megaFadeIn 0.18s ease;
+    overflow: hidden;
+}
+
+@keyframes megaFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mega-panel-inner {
+    display: flex;
+    gap: 0;
+    padding: 0;
+}
+
+/* Left sidebar */
+.mega-panel-left {
+    width: 220px;
+    flex-shrink: 0;
+    padding: 24px;
+    border-left: 4px solid #eee;
+    background: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mega-panel-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 4px;
+}
+
+.mega-panel-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.mega-panel-icon img {
+    border-radius: 8px !important;
+}
+
+.mega-panel-left h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+}
+
+.mega-panel-left p {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.mega-panel-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: opacity 0.2s;
+    width: fit-content;
+}
+
+.mega-panel-cta:hover {
+    opacity: 0.85;
+}
+
+/* Right: subcategories grid */
+.mega-panel-right {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding: 12px 16px;
+    align-content: start;
+}
+
+.mega-panel-sub {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 450;
+    color: #555;
+    text-decoration: none !important;
+    transition: all 0.12s ease;
+    line-height: 1.3;
+}
+
+.mega-panel-sub:hover {
+    background: #fff4eb;
+    color: #e55f00;
+}
+
+.mega-panel-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    opacity: 0.6;
+}
+
+.mega-panel-sub:hover .mega-panel-dot {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .mega-panel-right {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cat-nav-link {
+        padding: 10px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cat-nav-list {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+    }
+
+    .cat-nav-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mega-panel-inner {
+        flex-direction: column;
+    }
+
+    .mega-panel-left {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        padding: 16px 20px;
+        gap: 16px;
+        border-left: none;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .mega-panel-icon {
+        margin-bottom: 0;
+    }
+
+    .mega-panel-left p {
+        display: none;
+    }
+
+    .mega-panel-right {
+        grid-template-columns: repeat(2, 1fr);
+        max-height: 50vh;
+        overflow-y: auto;
+    }
+}

@@ -1,7 +1,7 @@
 /* Product Detail Page — aligned with site design system */
 
 .product-detail-page {
-    padding-top: 20px;
+    padding-top: 8px;
     padding-bottom: 64px;
 }
 
@@ -12,13 +12,13 @@
     gap: 8px;
     font-size: 13px;
     color: var(--muted);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     white-space: nowrap;
     overflow-x: auto;
 }
 
 .product-breadcrumb a:hover {
-    color: var(--primary);
+    color: #333;
 }
 
 /* Main layout */
@@ -197,7 +197,7 @@
 .detail-current-price {
     font-size: 28px;
     font-weight: 800;
-    color: var(--foreground);
+    color: #19335d;
 }
 
 .detail-old-price {
@@ -303,13 +303,12 @@
     justify-content: space-between;
     gap: 16px;
     margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-light);
+    padding-top: 0;
 }
 
 .detail-stock-row strong {
     font-size: 13px;
-    color: var(--accent-green);
+    color: #555;
     font-weight: 600;
 }
 
@@ -371,7 +370,7 @@
 
 .detail-primary-cta:hover {
     background: var(--primary-hover);
-    box-shadow: 0 4px 12px rgba(54, 101, 243, 0.3);
+    box-shadow: 0 4px 12px rgba(26, 26, 46, 0.3);
 }
 
 .detail-secondary-cta {
@@ -381,7 +380,7 @@
 }
 
 .detail-secondary-cta:hover {
-    background: #eef2ff;
+    background: #f0f2f5;
 }
 
 .product-tab-panel h2,
@@ -468,9 +467,9 @@
 .seller-verified-badge {
     font-size: 11px !important;
     font-weight: 600;
-    color: var(--primary) !important;
-    background: rgba(54, 101, 243, 0.08);
-    border: 1px solid rgba(54, 101, 243, 0.2);
+    color: #2e7d32 !important;
+    background: rgba(46, 125, 50, 0.08);
+    border: 1px solid rgba(46, 125, 50, 0.2);
     padding: 1px 6px;
     border-radius: 12px;
 }
@@ -571,6 +570,45 @@
 .contact-option-text span {
     font-size: 13px;
     color: var(--muted);
+}
+
+.contact-phone-revealed {
+    font-size: 15px;
+    font-weight: 700;
+    color: #19335d;
+    text-decoration: none !important;
+    letter-spacing: 0.5px;
+}
+
+.contact-phone-revealed:hover {
+    text-decoration: underline !important;
+}
+
+.contact-option-clickable {
+    cursor: pointer;
+}
+
+.contact-phone-masked {
+    font-size: 13px;
+    color: #888;
+}
+
+.contact-phone-masked em {
+    color: #19335d;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.contact-phone-number {
+    font-size: 15px;
+    font-weight: 700;
+    color: #19335d;
+    text-decoration: none;
+}
+
+.contact-phone-number:hover {
+    text-decoration: underline;
 }
 
 /* Tabs section */

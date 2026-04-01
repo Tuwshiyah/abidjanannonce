@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import { Product } from "@/lib/data";
+import { useFavorites } from "@/lib/favorites";
 import "./product-detail.css";
 import "./contact-modal.css";
 
@@ -71,7 +73,7 @@ function getHighlights(product: Product) {
     return [
         `${getConditionLabel(product.condition)} verifie avant mise en ligne`,
         `Livraison rapide disponible a Abidjan et en interieur`,
-        `Paiement securise et assistance LuxeBay`,
+        `Paiement securise et assistance AbidjanAnnonce`,
         `${product.reviewCount.toLocaleString("fr-FR")} acheteurs ont consulte cette annonce`,
     ];
 }
@@ -130,10 +132,21 @@ export default function ProductDetailPage({
     similarProducts: Product[];
 }) {
     const gallery = getGallery(product, similarProducts);
-    const [selectedImage, setSelectedImage] = useState(gallery[0]);
+    const router = useRouter();
+    const { toggleFavorite, isFavorite } = useFavorites();
+    const [selectedIndex, setSelectedIndex] = useState(0);
     const [activeTab, setActiveTab] = useState<DetailTab>("about");
     const [quantity, setQuantity] = useState(1);
     const [showContactModal, setShowContactModal] = useState(false);
+    const [showPhone, setShowPhone] = useState(false);
+    const liked = isFavorite(product.id);
+
+    const handleFavorite = () => {
+        const needsLogin = toggleFavorite(product.id);
+        if (needsLogin) {
+            router.push("/connexion");
+        }
+    };
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -159,8 +172,8 @@ export default function ProductDetailPage({
                 <section className="product-gallery-panel">
                     <div className="detail-image-stage">
                         <div className="detail-image-tools">
-                            <button aria-label="Ajouter aux favoris">
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+                            <button aria-label={liked ? "Retirer des favoris" : "Ajouter aux favoris"} onClick={handleFavorite} style={liked ? { color: "#e53935" } : {}}>
+                                <svg viewBox="0 0 24 24" width="18" height="18" fill={liked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2">
                                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                                 </svg>
                             </button>
@@ -174,15 +187,15 @@ export default function ProductDetailPage({
                             </button>
                         </div>
 
-                        <img src={selectedImage} alt={product.title} className="detail-main-image" />
+                        <img src={gallery[selectedIndex]} alt={product.title} className="detail-main-image" />
                     </div>
 
                     <div className="detail-thumbnails">
                         {gallery.map((image, index) => (
                             <button
                                 key={`${image}-${index}`}
-                                className={`detail-thumb ${selectedImage === image ? "detail-thumb-active" : ""}`}
-                                onClick={() => setSelectedImage(image)}
+                                className={`detail-thumb ${selectedIndex === index ? "detail-thumb-active" : ""}`}
+                                onClick={() => setSelectedIndex(index)}
                                 aria-label={`Voir l'image ${index + 1}`}
                             >
                                 <img src={image} alt="" />
@@ -194,7 +207,6 @@ export default function ProductDetailPage({
                 <aside className="product-purchase-column">
                     <div className="product-purchase-card">
                         <div className="product-kicker-row">
-                            <span className="product-kicker">Annonce verifiee</span>
                             <span className="product-category-pill">{product.category}</span>
                         </div>
 
@@ -249,7 +261,7 @@ export default function ProductDetailPage({
                                 <div className="seller-name-badge">
                                     <strong>{product.sellerName}</strong>
                                     <svg viewBox="0 0 24 24" width="18" height="18">
-                                        <path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81C14.67 2.63 13.43 1.75 12 1.75s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34z" fill="var(--primary)" />
+                                        <path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81C14.67 2.63 13.43 1.75 12 1.75s-2.67.88-3.34 2.19c-1.39-.46-2.9-.2-3.91.81s-1.27 2.52-.81 3.91C2.63 9.33 1.75 10.57 1.75 12s.88 2.67 2.19 3.34c-.46 1.39-.2 2.9.81 3.91s2.52 1.27 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.67-.88 3.34-2.19c1.39.46 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34z" fill="#2e7d32" />
                                         <path d="M9 12l2 2 4-4" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                     <span className="seller-verified-badge">{`Vendeur v\u00e9rifi\u00e9`}</span>
@@ -273,17 +285,21 @@ export default function ProductDetailPage({
                             <p className="modal-subtitle">A propos de : <strong>{product.title}</strong></p>
                         </div>
                         <div className="contact-options">
-                            <a href="tel:+2250700000000" className="contact-option">
+                            <div className="contact-option" onClick={() => setShowPhone(!showPhone)} style={{ cursor: "pointer" }}>
                                 <div className="contact-option-icon contact-option-phone">
                                     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                                     </svg>
                                 </div>
                                 <div className="contact-option-text">
-                                    <strong>Telephone</strong>
-                                    <span>Appeler directement le vendeur</span>
+                                    <strong>Téléphone</strong>
+                                    {showPhone ? (
+                                        <a href="tel:+2250700000000" className="contact-phone-revealed" onClick={(e) => e.stopPropagation()}>+225 07 00 00 00 00</a>
+                                    ) : (
+                                        <span>+225 07 XX XX XX XX — Cliquez pour afficher</span>
+                                    )}
                                 </div>
-                            </a>
+                            </div>
                             <a href="https://wa.me/2250700000000" target="_blank" rel="noopener noreferrer" className="contact-option">
                                 <div className="contact-option-icon contact-option-whatsapp">
                                     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
@@ -295,7 +311,7 @@ export default function ProductDetailPage({
                                     <span>Envoyer un message WhatsApp</span>
                                 </div>
                             </a>
-                            <a href="mailto:vendeur@luxebay.ci" className="contact-option">
+                            <a href="mailto:vendeur@abidjanannonce.ci" className="contact-option">
                                 <div className="contact-option-icon contact-option-email">
                                     <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -392,7 +408,7 @@ export default function ProductDetailPage({
                             <ul className="product-bullet-list">
                                 <li>Retrait disponible sous 24h selon le vendeur.</li>
                                 <li>Livraison express a Abidjan et expedition nationale sur demande.</li>
-                                <li>Paiement securise et suivi de commande sur LuxeBay.</li>
+                                <li>Paiement securise et suivi de commande sur AbidjanAnnonce.</li>
                                 <li>Retour sous 7 jours si le produit ne correspond pas a l&apos;annonce.</li>
                             </ul>
                         </div>

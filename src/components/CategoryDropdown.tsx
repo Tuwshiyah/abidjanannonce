@@ -2,22 +2,8 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { CATEGORIES } from "@/lib/categories";
 import { CategoryIcons } from "./CategoryIcons";
-
-const CATEGORIES = [
-    { name: "Véhicules", iconKey: "vehicules", color: "#E53935" },
-    { name: "Immobilier", iconKey: "immobilier", color: "#1E88E5" },
-    { name: "Électronique", iconKey: "electronique", color: "#43A047" },
-    { name: "Mode & Beauté", iconKey: "mode", color: "#FFB300" },
-    { name: "Maison & Jardin", iconKey: "maison", color: "#E53935" },
-    { name: "Emploi & Services", iconKey: "emploi", color: "#1E88E5" },
-    { name: "Alimentation", iconKey: "alimentation", color: "#43A047" },
-    { name: "Cours & Formation", iconKey: "cours", color: "#FFB300" },
-    { name: "Loisirs", iconKey: "loisirs", color: "#9C27B0" },
-    { name: "Animaux", iconKey: "animaux", color: "#00897B" },
-    { name: "Matériel Pro", iconKey: "pro", color: "#546E7A" },
-    { name: "Affaires", iconKey: "affaires", color: "#F57C00" },
-];
 
 export default function CategoryDropdown() {
     const [isOpen, setIsOpen] = useState(false);

@@ -12,7 +12,11 @@ export type Product = {
     rating: number;
     reviewCount: number;
     sold?: boolean;
+    isProSeller?: boolean;
 };
+
+// Sellers with business/enterprise accounts
+export const PRO_SELLER_IDS = ["seller-123", "seller-456", "seller-789", "seller-405", "seller-410", "seller-414"];
 
 export const MOCK_PRODUCTS: Product[] = [
     {
@@ -389,7 +393,10 @@ const CAMERA_WORLD_PRODUCTS: Product[] = [
     },
 ];
 
-export const ALL_PRODUCTS: Product[] = [...MOCK_PRODUCTS, ...LATEST_PRODUCTS, ...CAMERA_WORLD_PRODUCTS];
+export const ALL_PRODUCTS: Product[] = [...MOCK_PRODUCTS, ...LATEST_PRODUCTS, ...CAMERA_WORLD_PRODUCTS].map(p => ({
+    ...p,
+    isProSeller: PRO_SELLER_IDS.includes(p.sellerId),
+}));
 
 export function getProductById(id: string) {
     return ALL_PRODUCTS.find((product) => product.id === id);

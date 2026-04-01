@@ -1,0 +1,375 @@
+/* Search Bar Wrapper */
+.sb-wrapper {
+    flex: 1;
+    position: relative;
+    min-width: 0;
+}
+
+/* Form */
+.sb-form {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background: #fff;
+    border: 1.5px solid #e5e5e5;
+    border-radius: 28px;
+    overflow: visible;
+    transition: all 0.2s;
+}
+
+.sb-form:focus-within {
+    border-color: #19335d;
+    box-shadow: 0 0 0 3px rgba(26, 26, 46, 0.08);
+}
+
+/* Location */
+.sb-location {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.sb-location-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    height: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s;
+}
+
+.sb-location-btn:hover {
+    color: #333;
+}
+
+/* Dividers */
+.sb-divider {
+    width: 1px;
+    height: 24px;
+    background: #e8e8e8;
+    flex-shrink: 0;
+}
+
+/* Input Area */
+.sb-input-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 14px;
+    min-width: 0;
+}
+
+.sb-search-icon {
+    flex-shrink: 0;
+    color: #bbb;
+}
+
+.sb-form:focus-within .sb-search-icon {
+    color: #19335d;
+}
+
+.sb-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    background: none;
+    min-width: 0;
+}
+
+.sb-input::placeholder {
+    color: #bbb;
+}
+
+.sb-clear {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.15s;
+}
+
+.sb-clear:hover {
+    background: #e0e0e0;
+    color: #555;
+}
+
+/* Category */
+.sb-category {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.sb-category-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    height: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #777;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s;
+}
+
+.sb-category-btn:hover {
+    color: #333;
+}
+
+/* Submit */
+.sb-submit {
+    width: 50px;
+    height: 50px;
+    background: #19335d;
+    border: none;
+    border-radius: 0 28px 28px 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+.sb-submit:hover {
+    background: #0f3460;
+}
+
+/* Dropdowns */
+.sb-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    z-index: 2000;
+    padding: 8px;
+    max-height: 320px;
+    overflow-y: auto;
+    animation: sbDrop 0.15s ease;
+}
+
+@keyframes sbDrop {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.sb-dropdown-ville {
+    left: 0;
+    min-width: 200px;
+}
+
+.sb-dropdown-cat {
+    right: 50px;
+    min-width: 240px;
+}
+
+.sb-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #555;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.12s;
+    text-align: left;
+}
+
+.sb-dropdown-item:hover {
+    background: #f8f8f8;
+    color: #333;
+}
+
+.sb-dropdown-item-active {
+    background: #f0f2f5;
+    color: #19335d;
+    font-weight: 600;
+}
+
+.sb-dropdown-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Suggestions Panel */
+.sb-suggestions {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    z-index: 2000;
+    padding: 8px;
+    max-height: 420px;
+    overflow-y: auto;
+    animation: sbDrop 0.15s ease;
+}
+
+.sb-sug-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 14px 6px;
+}
+
+.sb-sug-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #444;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.12s;
+    text-decoration: none !important;
+    text-align: left;
+}
+
+.sb-sug-item:hover {
+    background: #f8f8f8;
+}
+
+.sb-sug-item svg {
+    flex-shrink: 0;
+    color: #ccc;
+}
+
+/* Category suggestion */
+.sb-sug-cat {
+    font-weight: 500;
+}
+
+.sb-sug-cat-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.sb-sug-cat-count {
+    margin-left: auto;
+    font-size: 11px;
+    color: #bbb;
+    font-weight: 500;
+}
+
+/* Product suggestion */
+.sb-sug-product {
+    gap: 14px;
+}
+
+.sb-sug-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: #f5f5f5;
+}
+
+.sb-sug-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.sb-sug-title {
+    font-size: 13px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sb-sug-price {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff6b00;
+}
+
+/* Empty */
+.sb-sug-empty {
+    padding: 24px;
+    text-align: center;
+    color: #bbb;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .sb-location-btn span {
+        display: none;
+    }
+
+    .sb-category-btn span {
+        display: none;
+    }
+
+    .sb-location-btn,
+    .sb-category-btn {
+        padding: 0 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .sb-form {
+        height: 44px;
+        border-radius: 12px;
+    }
+
+    .sb-location,
+    .sb-category,
+    .sb-divider {
+        display: none;
+    }
+
+    .sb-submit {
+        width: 44px;
+        height: 44px;
+        border-radius: 0 12px 12px 0;
+    }
+
+    .sb-dropdown {
+        left: 0 !important;
+        right: 0 !important;
+        min-width: auto !important;
+    }
+}

@@ -1,0 +1,359 @@
+.catpage-wrapper {
+    background: #fff;
+    min-height: 100vh;
+}
+
+.catpage {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px 20px 64px;
+}
+
+/* Breadcrumb */
+.catpage-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 24px;
+}
+
+.catpage-breadcrumb a {
+    color: #777;
+    text-decoration: none;
+}
+
+.catpage-breadcrumb a:hover {
+    color: #333;
+}
+
+.catpage-breadcrumb-current {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Hero */
+.catpage-hero {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+}
+
+.catpage-hero-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.catpage-hero-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.catpage-hero-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.catpage-hero-info h1 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #19335d;
+    margin: 0 0 6px;
+}
+
+.catpage-hero-info p {
+    font-size: 14px;
+    color: #888;
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+.catpage-hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #666;
+}
+
+.catpage-hero-stat strong {
+    font-weight: 700;
+    color: #333;
+}
+
+.catpage-hero-stat-sep {
+    color: #ccc;
+}
+
+/* Subcategories */
+.catpage-subcats {
+    margin-bottom: 32px;
+}
+
+.catpage-subcats h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #19335d;
+    margin: 0 0 16px;
+}
+
+.catpage-subcats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.catpage-subcat-chip {
+    padding: 8px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 24px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.catpage-subcat-chip:hover {
+    border-color: #bbb;
+    color: #333;
+}
+
+.catpage-subcat-chip.active {
+    font-weight: 600;
+}
+
+/* Layout with sidebar */
+.catpage-layout {
+    display: flex;
+    gap: 28px;
+    margin-bottom: 48px;
+}
+
+.catpage-main {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Content */
+.catpage-content {
+    margin-bottom: 48px;
+}
+
+.catpage-toolbar {
+    margin-bottom: 20px;
+}
+
+.catpage-result-count {
+    font-size: 14px;
+    color: #888;
+}
+
+.catpage-result-count strong {
+    color: #333;
+}
+
+.catpage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* Empty State */
+.catpage-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    background: #fafafa;
+    border-radius: 16px;
+    border: 2px dashed #e0e0e0;
+}
+
+.catpage-empty h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 20px 0 8px;
+}
+
+.catpage-empty p {
+    font-size: 14px;
+    color: #999;
+    margin: 0 0 24px;
+}
+
+.catpage-publish-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 28px;
+    text-decoration: none !important;
+    transition: all 0.2s;
+}
+
+.catpage-publish-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Other Categories */
+.catpage-other {
+    border-top: 1px solid #eee;
+    padding-top: 32px;
+}
+
+.catpage-other h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #19335d;
+    margin: 0 0 20px;
+}
+
+.catpage-other-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.catpage-other-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    text-decoration: none !important;
+    transition: all 0.15s;
+}
+
+.catpage-other-card:hover {
+    border-color: #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.catpage-other-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.catpage-other-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.catpage-other-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.catpage-other-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.catpage-other-count {
+    display: block;
+    font-size: 12px;
+    color: #999;
+}
+
+/* Not Found */
+.catpage-not-found {
+    max-width: 500px;
+    margin: 80px auto;
+    text-align: center;
+}
+
+.catpage-not-found h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #333;
+    margin: 0 0 12px;
+}
+
+.catpage-not-found p {
+    font-size: 14px;
+    color: #999;
+    margin: 0 0 24px;
+}
+
+.catpage-back-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #19335d;
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 28px;
+    text-decoration: none !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .catpage-layout {
+        flex-direction: column;
+    }
+
+    .catpage-layout .annonces-sidebar {
+        width: 100%;
+        position: static;
+    }
+
+    .catpage-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .catpage-other-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .catpage-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .catpage-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .catpage-other-grid {
+        grid-template-columns: 1fr;
+    }
+}

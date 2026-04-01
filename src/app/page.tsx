@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MOCK_PRODUCTS, LATEST_PRODUCTS } from "@/lib/data";
 import ProductCard from "@/components/ProductCard";
 import AnnonceCarousel from "@/components/AnnonceCarousel";
+import HeroSlider from "@/components/HeroSlider";
 import { CategoryIcons } from "@/components/CategoryIcons";
 import "./home.css";
 
@@ -9,21 +10,8 @@ export default function Home() {
   return (
     <div className="home-page container">
 
-      {/* Hero Banner Area */}
-      <section className="hero-banner">
-        <div className="hero-banner-content">
-          <h1>Jusqu&apos;à -50% sur le reconditionné LuxeBay</h1>
-          <p>Obtenez des appareils restaurés par des experts avec une garantie d&apos;un ou deux ans.</p>
-          <button className="banner-btn">Voir les offres</button>
-        </div>
-        <div className="hero-banner-grid">
-          {MOCK_PRODUCTS.slice(0, 8).map((p, i) => (
-            <div key={i} className="grid-item">
-              <img src={p.imageUrl} alt={p.title} />
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Hero Slider */}
+      <HeroSlider />
 
       {/* Category Section */}
       <section className="category-carousel-section">
@@ -34,22 +22,32 @@ export default function Home() {
             { name: "Immobilier", key: "immobilier", borderColor: "#1E88E5", iconColor: "#1565C0" },
             { name: "Électronique", key: "electronique", borderColor: "#43A047", iconColor: "#2E7D32" },
             { name: "Mode & Beauté", key: "mode", borderColor: "#FFB300", iconColor: "#E65100" },
-            { name: "Maison & Jardin", key: "maison", borderColor: "#E53935", iconColor: "#C62828" },
-            { name: "Emploi & Services", key: "emploi", borderColor: "#1E88E5", iconColor: "#1565C0" },
+            { name: "Pour la maison", key: "maison", borderColor: "#8E24AA", iconColor: "#6A1B9A" },
+            { name: "Emplois", key: "emploi", borderColor: "#1E88E5", iconColor: "#1565C0" },
+            { name: "Services", key: "services", borderColor: "#00897B", iconColor: "#00695C" },
             { name: "Alimentation", key: "alimentation", borderColor: "#43A047", iconColor: "#2E7D32" },
-            { name: "Cours & Formation", key: "cours", borderColor: "#FFB300", iconColor: "#E65100" },
-            { name: "Loisirs", key: "loisirs", borderColor: "#E53935", iconColor: "#C62828" },
+            { name: "Sports & Loisirs", key: "loisirs", borderColor: "#E53935", iconColor: "#C62828" },
             { name: "Animaux", key: "animaux", borderColor: "#1E88E5", iconColor: "#1565C0" },
             { name: "Matériel Pro", key: "pro", borderColor: "#43A047", iconColor: "#2E7D32" },
-            { name: "Affaires", key: "affaires", borderColor: "#FFB300", iconColor: "#E65100" },
+            { name: "Électroménager", key: "electromenager", borderColor: "#FFB300", iconColor: "#E65100" },
           ].map((cat) => (
-            <div key={cat.name} className="category-item">
+            <Link key={cat.name} href={`/categorie/${cat.key}`} className="category-item">
               <div className="category-circle" style={{ borderColor: cat.borderColor, color: cat.iconColor }}>
                 {CategoryIcons[cat.key]}
               </div>
               <span className="category-label">{cat.name}</span>
-            </div>
+            </Link>
           ))}
+          <Link href="/categories" className="category-item">
+            <div className="category-circle" style={{ borderColor: "#888", background: "#eee" }}>
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#555" strokeWidth="2">
+                <circle cx="5" cy="5" r="2" /><circle cx="12" cy="5" r="2" /><circle cx="19" cy="5" r="2" />
+                <circle cx="5" cy="12" r="2" /><circle cx="12" cy="12" r="2" /><circle cx="19" cy="12" r="2" />
+                <circle cx="5" cy="19" r="2" /><circle cx="12" cy="19" r="2" /><circle cx="19" cy="19" r="2" />
+              </svg>
+            </div>
+            <span className="category-label">Tout voir</span>
+          </Link>
         </div>
       </section>
 
@@ -62,7 +60,7 @@ export default function Home() {
           <h2>Dernières annonces publiées</h2>
         </div>
         <div className="latest-grid">
-          {LATEST_PRODUCTS.map((product, index) => (
+          {LATEST_PRODUCTS.map((product) => (
             <ProductCard key={product.id} product={product} showBadge={false} />
           ))}
         </div>
