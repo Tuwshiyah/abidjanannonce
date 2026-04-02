@@ -5,7 +5,7 @@ import "./globals.css";
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 const SLIDES = [
@@ -50,8 +51,20 @@ export default function HeroSlider() {
     }, [current, goTo]);
 
     useEffect(() => {
-        const timer = setInterval(next, 6000);
-        return () => clearInterval(timer);
+        let timer: ReturnType<typeof setInterval>;
+        const handleVisibility = () => {
+            if (document.hidden) {
+                clearInterval(timer);
+            } else {
+                timer = setInterval(next, 6000);
+            }
+        };
+        timer = setInterval(next, 6000);
+        document.addEventListener("visibilitychange", handleVisibility);
+        return () => {
+            clearInterval(timer);
+            document.removeEventListener("visibilitychange", handleVisibility);
+        };
     }, [next]);
 
     return (
@@ -79,7 +92,7 @@ export default function HeroSlider() {
                             </Link>
                         </div>
                         <div className="hero-grid-slide-img">
-                            <img src={slide.image} alt="" />
+                            <Image src={slide.image} alt="" width={600} height={400} loading={index === 0 ? "eager" : "lazy"} sizes="300px" />
                         </div>
                     </div>
                 ))}
@@ -134,7 +147,7 @@ export default function HeroSlider() {
                         </span>
                     </div>
                     <div className="hero-grid-card-img">
-                        <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=400&auto=format&fit=crop" alt="" />
+                        <Image src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?q=80&w=400&auto=format&fit=crop" alt="" width={400} height={300} loading="lazy" sizes="140px" />
                     </div>
                 </Link>
 
@@ -151,7 +164,7 @@ export default function HeroSlider() {
                         </span>
                     </div>
                     <div className="hero-grid-card-img">
-                        <img src="https://images.unsplash.com/photo-1556740758-90de940a6439?q=80&w=400&auto=format&fit=crop" alt="" />
+                        <Image src="https://images.unsplash.com/photo-1556740758-90de940a6439?q=80&w=400&auto=format&fit=crop" alt="" width={400} height={300} loading="lazy" sizes="140px" />
                     </div>
                 </Link>
             </div>

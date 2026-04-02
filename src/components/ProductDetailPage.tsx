@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import { Product } from "@/lib/data";
@@ -131,7 +132,7 @@ export default function ProductDetailPage({
     product: Product;
     similarProducts: Product[];
 }) {
-    const gallery = getGallery(product, similarProducts);
+    const gallery = useMemo(() => getGallery(product, similarProducts), [product, similarProducts]);
     const router = useRouter();
     const { toggleFavorite, isFavorite } = useFavorites();
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -187,7 +188,7 @@ export default function ProductDetailPage({
                             </button>
                         </div>
 
-                        <img src={gallery[selectedIndex]} alt={product.title} className="detail-main-image" />
+                        <Image src={gallery[selectedIndex]} alt={product.title} className="detail-main-image" width={800} height={600} priority sizes="(max-width: 768px) 100vw, 55vw" />
                     </div>
 
                     <div className="detail-thumbnails">
@@ -198,7 +199,7 @@ export default function ProductDetailPage({
                                 onClick={() => setSelectedIndex(index)}
                                 aria-label={`Voir l'image ${index + 1}`}
                             >
-                                <img src={image} alt="" />
+                                <Image src={image} alt="" width={120} height={90} loading="lazy" sizes="80px" />
                             </button>
                         ))}
                     </div>

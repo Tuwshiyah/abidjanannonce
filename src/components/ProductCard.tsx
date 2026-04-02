@@ -1,13 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useCallback, memo } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/lib/data";
 import { useFavorites } from "@/lib/favorites";
 import "./product-card.css";
 
-function StarRating({ rating, count }: { rating: number; count: number }) {
+const starPath = "M12 1.5c.4 0 .78.22.97.57l2.6 4.9 5.48.93c.39.07.71.33.84.7.13.36.05.77-.22 1.04l-3.9 3.98.85 5.44c.06.39-.09.78-.4 1.02-.31.24-.72.28-1.07.1L12 17.27l-4.95 2.72c-.35.19-.76.15-1.07-.1a1.12 1.12 0 0 1-.4-1.02l.85-5.44-3.9-3.98a1.12 1.12 0 0 1-.22-1.04c.13-.37.45-.63.84-.7l5.49-.93 2.59-4.9A1.1 1.1 0 0 1 12 1.5z";
+
+const StarRating = memo(function StarRating({ rating, count }: { rating: number; count: number }) {
     const fullStars = Math.floor(rating);
     const partial = rating - fullStars;
     const hasHalf = partial >= 0.25 && partial < 0.75;
@@ -15,8 +18,6 @@ function StarRating({ rating, count }: { rating: number; count: number }) {
     const totalFull = fullStars + extraFull;
     const emptyStars = 5 - totalFull - (hasHalf ? 1 : 0);
     const gradId = `halfGrad-${count}-${rating}`;
-
-    const starPath = "M12 1.5c.4 0 .78.22.97.57l2.6 4.9 5.48.93c.39.07.71.33.84.7.13.36.05.77-.22 1.04l-3.9 3.98.85 5.44c.06.39-.09.78-.4 1.02-.31.24-.72.28-1.07.1L12 17.27l-4.95 2.72c-.35.19-.76.15-1.07-.1a1.12 1.12 0 0 1-.4-1.02l.85-5.44-3.9-3.98a1.12 1.12 0 0 1-.22-1.04c.13-.37.45-.63.84-.7l5.49-.93 2.59-4.9A1.1 1.1 0 0 1 12 1.5z";
 
     return (
         <div className="star-rating">
@@ -45,17 +46,16 @@ function StarRating({ rating, count }: { rating: number; count: number }) {
             <span className="review-count">({count})</span>
         </div>
     );
-}
+});
 
-
-export default function ProductCard({ product, badgeType = "premium", showBadge = true }: { product: Product; badgeType?: "premium" | "boosted"; showBadge?: boolean }) {
-    const oldPrice = product.price * 1.35;
+function ProductCard({ product, badgeType = "premium", showBadge = true }: { product: Product; badgeType?: "premium" | "boosted"; showBadge?: boolean }) {
+    const oldPrice = Math.round(product.price * 1.35);
     const router = useRouter();
     const { toggleFavorite, isFavorite } = useFavorites();
     const [showToast, setShowToast] = useState(false);
     const liked = isFavorite(product.id);
 
-    const handleLike = (e: React.MouseEvent) => {
+    const handleLike = useCallback((e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
         const needsLogin = toggleFavorite(product.id);
@@ -67,7 +67,7 @@ export default function ProductCard({ product, badgeType = "premium", showBadge 
             setShowToast(true);
             setTimeout(() => setShowToast(false), 2000);
         }
-    };
+    }, [product.id, liked, toggleFavorite, router]);
 
     return (
         <div className="product-card">
@@ -85,7 +85,15 @@ export default function ProductCard({ product, badgeType = "premium", showBadge 
                     <div className="card-toast">Ajouté aux favoris</div>
                 )}
                 <Link href={`/product/${product.id}`} className="card-image-link">
-                    <img src={product.imageUrl} alt={product.title} className="card-image" />
+                    <Image
+                        src={product.imageUrl}
+                        alt={product.title}
+                        className="card-image"
+                        width={400}
+                        height={300}
+                        loading="lazy"
+                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    />
                 </Link>
             </div>
 
@@ -113,9 +121,11 @@ export default function ProductCard({ product, badgeType = "premium", showBadge 
 
                 <div className="card-price-row">
                     <span className="card-price">{product.price.toLocaleString('fr-FR')} FCFA</span>
-                    <span className="card-old-price">{oldPrice.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })} FCFA</span>
+                    <span className="card-old-price">{oldPrice.toLocaleString('fr-FR')} FCFA</span>
                 </div>
             </div>
         </div>
     );
 }
+
+export default memo(ProductCard);

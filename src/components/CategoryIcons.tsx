@@ -3,31 +3,31 @@ import React from 'react';
 // Modern duotone SVG icons — filled accents + clean outlines
 export const CategoryIcons: Record<string, React.ReactNode> = {
     vehicules: (
-        <img src="/categories/vehicules.webp" alt="Véhicules" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit", transform: "scale(1.15)" }} />
+        <img src="/categories/vehicules.webp" alt="Véhicules" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit", transform: "scale(1.15)" }} />
     ),
     immobilier: (
-        <img src="/categories/immobilier.webp" alt="Immobilier" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
+        <img src="/categories/immobilier.webp" alt="Immobilier" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
     electronique: (
-        <img src="/categories/electronique.webp" alt="Électronique" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", borderRadius: "inherit" }} />
+        <img src="/categories/electronique.webp" alt="Électronique" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", borderRadius: "inherit" }} />
     ),
     mode: (
-        <img src="/categories/mode.webp" alt="Mode & Beauté" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", borderRadius: "inherit" }} />
+        <img src="/categories/mode.webp" alt="Mode & Beauté" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 20%", borderRadius: "inherit" }} />
     ),
     maison: (
-        <img src="/categories/maison.webp" alt="Pour la maison" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
+        <img src="/categories/maison.webp" alt="Pour la maison" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
     emploi: (
-        <img src="/categories/emploi.webp" alt="Emplois" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
+        <img src="/categories/emploi.webp" alt="Emplois" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
     alimentation: (
-        <img src="/categories/alimentation.webp" alt="Alimentation" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
+        <img src="/categories/alimentation.webp" alt="Alimentation" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
     cours: (
-        <img src="/categories/cours.webp" alt="Cours & Formation" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
+        <img src="/categories/cours.webp" alt="Cours & Formation" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
     loisirs: (
-        <img src="/categories/loisirs.webp" alt="Sports & Loisirs" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
+        <img src="/categories/loisirs.webp" alt="Sports & Loisirs" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
     electromenager: (
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,10 +48,10 @@ export const CategoryIcons: Record<string, React.ReactNode> = {
         </svg>
     ),
     services: (
-        <img src="/categories/services.webp" alt="Services" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", borderRadius: "inherit" }} />
+        <img src="/categories/services.webp" alt="Services" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", borderRadius: "inherit" }} />
     ),
     animaux: (
-        <img src="/categories/animaux.webp" alt="Animaux" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", borderRadius: "inherit" }} />
+        <img src="/categories/animaux.webp" alt="Animaux" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", borderRadius: "inherit" }} />
     ),
     pro: (
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
