@@ -35,7 +35,7 @@ const PLANS = [
         popular: false,
         features: [
             { label: "15 annonces actives", included: true },
-            { label: "10 photos par annonce", included: true },
+            { label: "8 photos par annonce", included: true },
             { label: "Durée 60 jours", included: true },
             { label: "Numéro visible", included: true },
             { label: "3 crédits À la une / mois", included: true },
@@ -56,7 +56,7 @@ const PLANS = [
         popular: true,
         features: [
             { label: "40 annonces actives", included: true },
-            { label: "10 photos par annonce", included: true },
+            { label: "8 photos par annonce", included: true },
             { label: "Durée 60 jours", included: true },
             { label: "Numéro visible", included: true },
             { label: "10 crédits À la une / mois", included: true },
@@ -77,7 +77,7 @@ const PLANS = [
         popular: false,
         features: [
             { label: "Annonces illimitées", included: true },
-            { label: "10 photos par annonce", included: true },
+            { label: "8 photos par annonce", included: true },
             { label: "Durée 60 jours", included: true },
             { label: "Numéro visible", included: true },
             { label: "25 crédits À la une / mois", included: true },
@@ -231,7 +231,7 @@ export default function ForfaitsPage() {
                     </div>
                     <div className="boost-includes-item">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ea8846" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><path d="M21 15l-5-5L5 21" /></svg>
-                        10 photos au lieu de 3
+                        8 photos au lieu de 3
                     </div>
                     <div className="boost-includes-item">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#ea8846" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" /><circle cx="12" cy="12" r="3" /></svg>

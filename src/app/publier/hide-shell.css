@@ -1,0 +1,9 @@
+/* Hide site header and footer when on /publier page */
+body:has(.publier-shell) .site-header,
+body:has(.publier-shell) .site-footer {
+    display: none !important;
+}
+
+body:has(.publier-shell) main {
+    min-height: 0 !important;
+}

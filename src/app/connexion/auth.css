@@ -599,6 +599,36 @@ body:has(.auth-page) .footer-cta {
     background: linear-gradient(135deg, #b8890f, #d4a017);
 }
 
+/* Type pricing block */
+.auth-type-pricing {
+    width: 100%;
+    padding: 12px 16px;
+    background: #f5f7fa;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+.auth-type-pricing strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 800;
+    color: #19335d;
+    margin-bottom: 2px;
+}
+
+.auth-type-pricing span {
+    font-size: 11px;
+    color: #999;
+}
+
+.auth-type-pricing-pro {
+    background: #fef9ee;
+}
+
+.auth-type-pricing-pro strong {
+    color: #d4a017;
+}
+
 /* Step back button */
 .auth-header-with-back {
     display: flex;

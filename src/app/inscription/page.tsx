@@ -81,18 +81,18 @@ export default function InscriptionPage() {
         return (
             <div className="auth-page auth-page-centered">
                 <div className="auth-right">
-                    <div className="auth-card">
-                        <div className="auth-card-header">
+                    <div className="auth-card" style={{ maxWidth: 860 }}>
+                        <div className="auth-card-header" style={{ textAlign: "center" }}>
                             <h1>Comment voulez-vous vous inscrire ?</h1>
-                            <p className="auth-subtitle">Choisissez le type de compte qui vous correspond</p>
+                            <p className="auth-subtitle">Choisissez le type de compte adapté à votre activité pour commencer à publier vos annonces</p>
                         </div>
 
                         <div className="auth-type-choices">
                             <button className="auth-type-card" onClick={() => setAccountType("particulier")}>
                                 <div className="auth-type-icon auth-type-icon-blue">
                                     <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                        <circle cx="12" cy="7" r="4" />
+                                        <circle cx="12" cy="8" r="5" />
+                                        <path d="M20 21a8 8 0 0 0-16 0" />
                                     </svg>
                                 </div>
                                 <h3>Je suis un particulier</h3>
@@ -100,19 +100,35 @@ export default function InscriptionPage() {
                                 <ul className="auth-type-perks">
                                     <li>
                                         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                                        3 annonces gratuites
+                                        5 annonces gratuites incluses
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                                        Inscription rapide
+                                        3 photos par annonce
                                     </li>
                                     <li>
                                         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                                        Messagerie intégrée
+                                        Durée 30 jours
+                                    </li>
+                                    <li>
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        Numéro masqué pour votre sécurité
+                                    </li>
+                                    <li>
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        Boosts et options à la carte disponibles
+                                    </li>
+                                    <li>
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        Inscription rapide et gratuite
                                     </li>
                                 </ul>
+                                <div className="auth-type-pricing">
+                                    <strong>Gratuit pour commencer</strong>
+                                    <span>Options payantes pour plus de visibilité</span>
+                                </div>
                                 <span className="auth-type-cta">
-                                    Commencer
+                                    Créer un compte particulier
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14" /><polyline points="12 5 19 12 12 19" /></svg>
                                 </span>
                             </button>
@@ -121,7 +137,7 @@ export default function InscriptionPage() {
                                 <div className="auth-type-badge">Recommandé pour les pros</div>
                                 <div className="auth-type-icon auth-type-icon-gold">
                                     <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                        <rect x="2" y="7" width="20" height="14" rx="2" />
+                                        <rect x="2" y="7" width="20" height="14" rx="3" />
                                         <path d="M16 7V5a4 4 0 0 0-8 0v2" />
                                         <circle cx="12" cy="14" r="2" />
                                     </svg>
@@ -130,20 +146,36 @@ export default function InscriptionPage() {
                                 <p>Je vends de façon professionnelle et souhaite développer mon activité</p>
                                 <ul className="auth-type-perks">
                                     <li>
-                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                                        Boutique vendeur personnalisée
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#d4a017" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        Jusqu&apos;à 40+ annonces actives
                                     </li>
                                     <li>
-                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                                        Badge vendeur vérifié
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#d4a017" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        8 photos par annonce
                                     </li>
                                     <li>
-                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#43a047" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                                        Statistiques et outils pro
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#d4a017" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        Badge PRO vérifié
+                                    </li>
+                                    <li>
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#d4a017" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        Page boutique personnalisée
+                                    </li>
+                                    <li>
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#d4a017" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        Statistiques avancées et boosts inclus
+                                    </li>
+                                    <li>
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#d4a017" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
+                                        WhatsApp Business intégré
                                     </li>
                                 </ul>
+                                <div className="auth-type-pricing auth-type-pricing-pro">
+                                    <strong>À partir de 7 500 FCFA/mois</strong>
+                                    <span>Plusieurs forfaits selon vos besoins</span>
+                                </div>
                                 <span className="auth-type-cta auth-type-cta-gold">
-                                    Commencer
+                                    Créer un compte entreprise
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14" /><polyline points="12 5 19 12 12 19" /></svg>
                                 </span>
                             </button>
@@ -151,6 +183,9 @@ export default function InscriptionPage() {
 
                         <div className="auth-footer">
                             Vous avez déjà un compte ? <Link href="/connexion">Se connecter</Link>
+                            <p style={{ marginTop: 8, fontSize: 13, color: "#999" }}>
+                                <Link href="/forfaits" style={{ color: "#999" }}>Comparer tous les forfaits en détail</Link>
+                            </p>
                         </div>
                     </div>
                 </div>

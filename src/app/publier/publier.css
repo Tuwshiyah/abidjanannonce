@@ -1,0 +1,356 @@
+.publier-page {
+    min-height: 100vh;
+    background: #f5f6f8;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top bar */
+.publier-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.publier-logo {
+    text-decoration: none !important;
+    font-size: 22px;
+    font-weight: 800;
+    display: flex;
+    align-items: baseline;
+    gap: 0;
+}
+
+.publier-logo-a {
+    color: #19335d;
+}
+
+.publier-logo-b {
+    color: #ea8846;
+}
+
+/* Topbar left with breadcrumb */
+.publier-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.publier-topbar-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.publier-topbar-breadcrumb a {
+    color: #888;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.publier-topbar-breadcrumb a:hover {
+    color: #19335d;
+}
+
+.publier-topbar-sep {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.publier-topbar-current {
+    color: #19335d;
+    font-weight: 700;
+}
+
+.publier-close-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    text-decoration: none !important;
+    transition: all 0.15s;
+}
+
+.publier-close-btn:hover {
+    background: #eee;
+    color: #333;
+}
+
+/* Content */
+.publier-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px 64px;
+}
+
+.publier-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.publier-header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #19335d;
+    margin: 0 0 6px;
+}
+
+.publier-header p {
+    font-size: 15px;
+    color: #888;
+    margin: 0;
+    max-width: 520px;
+    line-height: 1.6;
+}
+
+/* Grid */
+.publier-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 40px;
+}
+
+/* Card */
+.publier-card {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    transition: all 0.25s;
+}
+
+.publier-card:hover {
+    border-color: #19335d;
+    box-shadow: 0 8px 32px rgba(25, 51, 93, 0.08);
+    transform: translateY(-4px);
+}
+
+.publier-card-pro {
+    border-color: #e8dfc0;
+}
+
+.publier-card-pro:hover {
+    border-color: #d4a017;
+    box-shadow: 0 8px 32px rgba(212, 160, 23, 0.1);
+}
+
+.publier-pro-badge {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: linear-gradient(135deg, #f5af02, #e8970a);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 5px 16px;
+    border-radius: 14px;
+    letter-spacing: 0.3px;
+}
+
+/* Icon */
+.publier-card-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.publier-icon-blue {
+    background: #e8edf5;
+    color: #19335d;
+}
+
+.publier-icon-gold {
+    background: #fef7e0;
+    color: #d4a017;
+}
+
+/* Title */
+.publier-card h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #19335d;
+    margin: 0 0 8px;
+}
+
+.publier-pro-label {
+    font-size: 11px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #d4a017, #e8b020);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.publier-card-desc {
+    font-size: 14px;
+    color: #888;
+    margin: 0 0 20px;
+    line-height: 1.5;
+}
+
+/* Perks */
+.publier-perks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.publier-perks li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+.publier-perks li svg {
+    flex-shrink: 0;
+}
+
+/* Pricing */
+.publier-pricing {
+    width: 100%;
+    padding: 14px 18px;
+    background: #f5f7fa;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.publier-pricing strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 800;
+    color: #19335d;
+    margin-bottom: 2px;
+}
+
+.publier-pricing span {
+    font-size: 12px;
+    color: #999;
+}
+
+.publier-pricing-pro {
+    background: #fef9ee;
+}
+
+.publier-pricing-pro strong {
+    color: #d4a017;
+}
+
+/* CTA */
+.publier-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 14px;
+    text-decoration: none !important;
+    transition: all 0.25s;
+    margin-top: auto;
+}
+
+.publier-cta-blue {
+    background: #19335d;
+    color: #fff !important;
+}
+
+.publier-cta-blue:hover {
+    background: #0f2240;
+    box-shadow: 0 6px 20px rgba(25, 51, 93, 0.25);
+    transform: translateY(-2px);
+}
+
+.publier-cta-gold {
+    background: linear-gradient(135deg, #d4a017, #e8b020);
+    color: #fff !important;
+}
+
+.publier-cta-gold:hover {
+    background: linear-gradient(135deg, #b8890f, #d4a017);
+    box-shadow: 0 6px 20px rgba(212, 160, 23, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Bottom */
+.publier-bottom {
+    text-align: center;
+}
+
+.publier-bottom p {
+    font-size: 14px;
+    color: #888;
+    margin: 0;
+}
+
+.publier-bottom a {
+    color: #19335d;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.publier-bottom a:hover {
+    text-decoration: underline;
+}
+
+.publier-bottom-secondary {
+    margin-top: 8px !important;
+}
+
+.publier-bottom-secondary a {
+    color: #999 !important;
+    font-weight: 500 !important;
+    font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .publier-content {
+        padding: 32px 16px 48px;
+    }
+
+    .publier-header h1 {
+        font-size: 24px;
+    }
+
+    .publier-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+    }
+
+    .publier-card {
+        padding: 28px 24px;
+    }
+}
