@@ -135,6 +135,55 @@
     color: #333;
 }
 
+/* Type picker */
+.sb-type {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.sb-type-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    height: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #777;
+    background: none;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.15s;
+}
+
+.sb-type-btn:hover {
+    color: #333;
+}
+
+.sb-dropdown-type {
+    right: 50px;
+    min-width: 200px;
+}
+
+.sb-type-emoji {
+    font-size: 16px;
+}
+
+/* Pro badge in suggestions */
+.sb-sug-pro-badge {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    background: #19335d;
+    color: white;
+    padding: 1px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.3px;
+}
+
 /* Submit */
 .sb-submit {
     width: 50px;
@@ -335,16 +384,15 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-    .sb-location-btn span {
-        display: none;
-    }
-
-    .sb-category-btn span {
+    .sb-location-btn span,
+    .sb-category-btn span,
+    .sb-type-btn span {
         display: none;
     }
 
     .sb-location-btn,
-    .sb-category-btn {
+    .sb-category-btn,
+    .sb-type-btn {
         padding: 0 12px;
     }
 }
@@ -357,6 +405,7 @@
 
     .sb-location,
     .sb-category,
+    .sb-type,
     .sb-divider {
         display: none;
     }

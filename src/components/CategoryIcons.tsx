@@ -30,12 +30,7 @@ export const CategoryIcons: Record<string, React.ReactNode> = {
         <img src="/categories/loisirs.webp" alt="Sports & Loisirs" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
     electromenager: (
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="14" y="8" width="36" height="48" rx="4" fill="currentColor" opacity=".1" stroke="currentColor" strokeWidth="2.8" />
-            <rect x="20" y="14" width="24" height="16" rx="2" stroke="currentColor" strokeWidth="2.2" fill="currentColor" opacity=".08" />
-            <circle cx="32" cy="44" r="5" stroke="currentColor" strokeWidth="2.2" />
-            <line x1="32" y1="39" x2="32" y2="44" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        </svg>
+        <img src="/categories/electromenager.webp" alt="Électroménager" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
     enfant: (
         <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -34,9 +34,11 @@ export default function SearchBar() {
     const [query, setQuery] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("Toutes les catégories");
     const [selectedVille, setSelectedVille] = useState("Tout Abidjan");
+    const [selectedType, setSelectedType] = useState("Tous");
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [showCatDropdown, setShowCatDropdown] = useState(false);
     const [showVilleDropdown, setShowVilleDropdown] = useState(false);
+    const [showTypeDropdown, setShowTypeDropdown] = useState(false);
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     // Close all dropdowns on outside click
@@ -46,6 +48,7 @@ export default function SearchBar() {
                 setShowSuggestions(false);
                 setShowCatDropdown(false);
                 setShowVilleDropdown(false);
+                setShowTypeDropdown(false);
             }
         };
         document.addEventListener("mousedown", handleClick);
@@ -80,6 +83,7 @@ export default function SearchBar() {
         if (query.trim()) params.set("q", query.trim());
         if (selectedCategory !== "Toutes les catégories") params.set("cat", selectedCategory);
         if (selectedVille !== "Tout Abidjan") params.set("ville", selectedVille);
+        if (selectedType !== "Tous") params.set("type", selectedType.toLowerCase());
         window.location.href = `/annonces?${params.toString()}`;
     };
 
@@ -185,6 +189,49 @@ export default function SearchBar() {
                     )}
                 </div>
 
+                <div className="sb-divider" />
+
+                {/* Type picker (Particulier / Pro) */}
+                <div className="sb-type">
+                    <button
+                        type="button"
+                        className="sb-type-btn"
+                        onClick={() => {
+                            setShowTypeDropdown(!showTypeDropdown);
+                            setShowCatDropdown(false);
+                            setShowVilleDropdown(false);
+                            setShowSuggestions(false);
+                        }}
+                    >
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>
+                        <span>{selectedType}</span>
+                        <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="6 9 12 15 18 9" /></svg>
+                    </button>
+
+                    {showTypeDropdown && (
+                        <div className="sb-dropdown sb-dropdown-type">
+                            {[
+                                { value: "Tous", icon: null, label: "Tous les vendeurs" },
+                                { value: "Particulier", icon: "👤", label: "Particulier" },
+                                { value: "Pro", icon: "🏪", label: "Professionnel" },
+                            ].map((t) => (
+                                <button
+                                    key={t.value}
+                                    type="button"
+                                    className={`sb-dropdown-item ${selectedType === t.value ? "sb-dropdown-item-active" : ""}`}
+                                    onClick={() => { setSelectedType(t.value); setShowTypeDropdown(false); }}
+                                >
+                                    {t.icon && <span className="sb-type-emoji">{t.icon}</span>}
+                                    {t.label}
+                                    {selectedType === t.value && (
+                                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#19335d" strokeWidth="3"><polyline points="20 6 9 17 4 12" /></svg>
+                                    )}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                </div>
+
                 {/* Submit */}
                 <button type="submit" className="sb-submit">
                     <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
@@ -246,7 +293,10 @@ export default function SearchBar() {
                                     <img src={p.imageUrl} alt="" className="sb-sug-img" />
                                     <div className="sb-sug-info">
                                         <span className="sb-sug-title">{p.title}</span>
-                                        <span className="sb-sug-price">{p.price.toLocaleString("fr-FR")} FCFA</span>
+                                        <span className="sb-sug-price">
+                                            {p.price.toLocaleString("fr-FR")} FCFA
+                                            {p.isProSeller && <span className="sb-sug-pro-badge">PRO</span>}
+                                        </span>
                                     </div>
                                 </Link>
                             ))}
