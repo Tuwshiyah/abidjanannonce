@@ -49,12 +49,6 @@ export const CategoryIcons: Record<string, React.ReactNode> = {
         <img src="/categories/animaux.webp" alt="Animaux" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%", borderRadius: "inherit" }} />
     ),
     pro: (
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="28" width="48" height="28" rx="4" fill="currentColor" opacity=".1" stroke="currentColor" strokeWidth="2.8" />
-            <rect x="18" y="8" width="10" height="20" rx="3" fill="currentColor" opacity=".12" stroke="currentColor" strokeWidth="2.5" />
-            <rect x="36" y="14" width="10" height="14" rx="3" fill="currentColor" opacity=".12" stroke="currentColor" strokeWidth="2.5" />
-            <circle cx="32" cy="42" r="9" stroke="currentColor" strokeWidth="2.5" fill="currentColor" opacity=".08" />
-            <path d="M27 42l4 4 8-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <img src="/categories/pro.webp" alt="Matériel Pro" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 50%", borderRadius: "inherit" }} />
     ),
 };
